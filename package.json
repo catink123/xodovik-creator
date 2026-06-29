@@ -1,0 +1,22 @@
+{
+  "name": "xodovik-creator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "start": "vite"
+  },
+  "dependencies": {
+    "@suid/icons-material": "*",
+    "@suid/material": "*",
+    "html2pdf.js": "^0.14.0",
+    "jspdf": "^4.2.1",
+    "solid-js": "*"
+  },
+  "devDependencies": {
+    "@suid/vite-plugin": "*",
+    "typescript": "^4.8.2",
+    "vite": "*",
+    "vite-plugin-solid": "*"
+  }
+}
