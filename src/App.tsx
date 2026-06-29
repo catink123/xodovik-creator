@@ -104,9 +104,15 @@ export default function App() {
     }
   }
 
-  function makePDF() {
-    const doc = generatePDF([...data], [...publications]);
-    doc.save("document.pdf");
+  async function makePDF() {
+    const doc = await generatePDF([...data], [...publications]);
+    const bytes = await doc.save();
+    const blob = new Blob([bytes], { type: "application/pdf" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "document.pdf";
+    a.click();
+    URL.revokeObjectURL(a.href);
   }
 
   function saveJSON() {

@@ -16,15 +16,15 @@ export default function Preview(props: PreviewProps) {
     const pubsSnap = JSON.parse(JSON.stringify(props.publications()));
 
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
+    debounceTimer = setTimeout(async () => {
       const old = url();
       if (dataSnap.length === 0) {
         setUrl("");
         if (old) URL.revokeObjectURL(old);
         return;
       }
-      const doc = generatePDF(dataSnap, pubsSnap);
-      const blob = pdfToBlob(doc);
+      const doc = await generatePDF(dataSnap, pubsSnap);
+      const blob = await pdfToBlob(doc);
       const newUrl = URL.createObjectURL(blob);
       setUrl(newUrl);
       if (old) URL.revokeObjectURL(old);
