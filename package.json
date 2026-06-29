@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "vite build",
-    "start": "vite"
+    "start": "vite",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@suid/icons-material": "*",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@suid/vite-plugin": "*",
+    "gh-pages": "^6.3.0",
     "typescript": "^4.8.2",
     "vite": "*",
     "vite-plugin-solid": "*"
